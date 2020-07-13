@@ -38,23 +38,6 @@ displayBoard() {
 
 displayBoard
 
-#chooseSymbol() {
-#	if [ $firstPlayerv -eq 1 ]
-#	then
-#		read -p "Choose Symbol For X=1 and For 0=2" a
-#		if [$a -eq 1 ]
-#		then
-#			userSymbol="X"
-#			comSymbol="O"
-#		elif [$a -eq 2 ]
-#		then
-#			userSymbol="0"
-#			compSymbol="X"
-#		fi
-#
-#	fi
-#}
-
 checkTurn() {
 	randomCheck=$((RANDOM%2))
 	if [ $randomCheck -eq 0 ]
@@ -84,4 +67,20 @@ checkTurn() {
 		echo "COMPUTER choose: $comSymbol"
 	fi
 }
-checkTurn
+
+playerInput() {
+	dispalyBoard
+	checkTurn
+	echo -e "--------------------------- \nChoose a Cell for $userSymbol \n---------------------------------"
+	read -p "Enter the Cell NUmber from 1- $BOARD_SIZE : " inputCell
+
+	if [[  $inputCell -gt 0  &&  $inputCell -lt $BOARD_SIZE ]]
+	then
+		echo "Input choice is valid"
+	else
+		echo "Invalid Input choice"
+	fi
+
+}
+playerInput
+
