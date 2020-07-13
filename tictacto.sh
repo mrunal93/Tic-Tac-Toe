@@ -36,7 +36,6 @@ displayBoard() {
 	done
 }
 
-displayBoard
 
 checkTurn() {
 	randomCheck=$((RANDOM%2))
@@ -69,7 +68,9 @@ checkTurn() {
 }
 
 playerInput() {
-	dispalyBoard
+	echo -e "================ \n==============="
+	displayBoard
+	echo -e "================ \n==============="
 	checkTurn
 	echo -e "--------------------------- \nChoose a Cell for $userSymbol \n---------------------------------"
 	read -p "Enter the Cell NUmber from 1- $BOARD_SIZE : " inputCell
