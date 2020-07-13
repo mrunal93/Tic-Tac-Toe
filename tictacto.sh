@@ -18,26 +18,6 @@ resetBoard() {
 	done
 }
 
-
-displayBoard() {
-	for (( count=1; count<=$BOARD_SIZE; count++ ))
-	do
-		if [[ ${ticBoard[$count]} -eq 0 ]]
-		then
-			printf _"|"
-		else
-			printf ${ticBoard[$count]}" "
-		fi
-
-		if [ $(( $count % $ROW_SIZE )) -eq 0 ]
-		then
-			echo
-		fi
-	done
-}
-
-displayBoard
-
 checkTurn() {
 	randomCheck=$((RANDOM%2))
 	if [ $randomCheck -eq $user_symbol ]
