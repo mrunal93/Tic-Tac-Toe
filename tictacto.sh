@@ -4,8 +4,8 @@ echo -e "Welcome to Tic-Tac-Toe Game \n----------------------------- \nAs a Tic 
 
 ROW_SIZE=3
 BOARD_SIZE=$((ROW_SIZE*ROW_SIZE))
-userSymbol=1
-compSymbol=0
+userSymbol="0"
+compSymbol="0"
 firstPlayer=0
 Position=0
 count=0
@@ -18,43 +18,6 @@ resetBoard() {
 	done
 }
 
-
-displayBoard() {
-	for (( count=1; count<=$BOARD_SIZE; count++ ))
-	do
-		if [[ ${ticBoard[$count]} -eq 0 ]]
-		then
-			printf _"|"
-		else
-			printf ${ticBoard[$count]}" "
-		fi
-
-		if [ $(( $count % $ROW_SIZE )) -eq 0 ]
-		then
-			echo
-		fi
-	done
-}
-
-displayBoard
-
-#chooseSymbol() {
-#	if [ $firstPlayerv -eq 1 ]
-#	then
-#		read -p "Choose Symbol For X=1 and For 0=2" a
-#		if [$a -eq 1 ]
-#		then
-#			userSymbol="X"
-#			comSymbol="O"
-#		elif [$a -eq 2 ]
-#		then
-#			userSymbol="0"
-#			compSymbol="X"
-#		fi
-#
-#	fi
-#}
-
 checkTurn() {
 	randomCheck=$((RANDOM%2))
 	if [ $randomCheck -eq 0 ]
@@ -64,10 +27,8 @@ checkTurn() {
                 if [ $a -eq 1 ]
                 then
                         userSymbol="X"
-                        comSymbol="O"
                 elif [ $a -eq 2 ]
                 then
-                        userSymbol="0"
                         compSymbol="X"
                 fi
 		echo "PLAYER Choose: $userSymbol"
@@ -76,9 +37,7 @@ checkTurn() {
 		if [ $((RANDOM%2)) -eq 0 ]
 		then
 			userSymbol="X"
-                        comSymbol="O"
 		else
-			userSymbol="0"
                         compSymbol="X"
 		fi
 		echo "COMPUTER choose: $comSymbol"
