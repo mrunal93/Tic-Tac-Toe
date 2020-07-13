@@ -4,8 +4,8 @@ echo -e "Welcome to Tic-Tac-Toe Game \n----------------------------- \nAs a Tic 
 
 ROW_SIZE=3
 BOARD_SIZE=$((ROW_SIZE*ROW_SIZE))
-userSymbol=1
-compSymbol=0
+userSymbol="0"
+compSymbol="0"
 firstPlayer=0
 Position=0
 count=0
@@ -46,10 +46,8 @@ checkTurn() {
                 if [ $a -eq 1 ]
                 then
                         userSymbol="X"
-                        comSymbol="O"
                 elif [ $a -eq 2 ]
                 then
-                        userSymbol="0"
                         compSymbol="X"
                 fi
 		echo "PLAYER Choose: $userSymbol"
@@ -58,12 +56,10 @@ checkTurn() {
 		if [ $((RANDOM%2)) -eq 0 ]
 		then
 			userSymbol="X"
-                        comSymbol="O"
 		else
-			userSymbol="0"
                         compSymbol="X"
 		fi
-		echo "COMPUTER choose: $comSymbol"
+		echo "COMPUTER choose: $compSymbol"
 	fi
 }
 
@@ -83,5 +79,5 @@ playerInput() {
 	fi
 
 }
-playerInput
 
+playerInput
