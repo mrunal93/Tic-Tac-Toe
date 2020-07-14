@@ -42,28 +42,28 @@ displayBoard() {
 toss() {
 
 	randomCheck=$((RANDOM%2))
-	if [ $randomCheck -eq 0 ]
-	then
+	#if [ $randomCheck -eq 0 ]
+	#then
 		echo "HUMAN has won the Toss"
-		read -p "Choose Symbol For X=1 and For 0=2" a
-                if [ $a -eq 1 ]
-                then
+	#	read -p "Choose Symbol For X=1 and For 0=2" a
+         #       if [ $a -eq 1 ]
+          #      then
                         userSymbol="X"
-                elif [ $a -eq 2 ]
-                then
-                        compSymbol="X"
-                fi
-		echo "PLAYER Choose: $userSymbol"
-	else
+           #     elif [ $a -eq 2 ]
+            #    then
+             #           compSymbol="X"
+              #  fi
+	#	echo "PLAYER Choose: $userSymbol"
+	#else
 		echo "COMPUTER has won the Toss"
-		if [ $((RANDOM%2)) -eq 0 ]
+		if [ $randomCheck -eq 0 ]
 		then
 			userSymbol="X"
 		else
                         compSymbol="X"
 		fi
 		echo "COMPUTER choose: $compSymbol"
-	fi
+#	fi
 }
 
 validPositionChecker(){
